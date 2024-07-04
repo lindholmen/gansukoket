@@ -1,5 +1,7 @@
 html {
-  height: 100%;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -8,36 +10,46 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1024px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
   padding-top: 10px;
-  height: 118px;
+  padding-bottom: 10px;
+  padding: 0.5em 0.5em;
   text-align: center;
 }
 
 nav {
-  background-color: rgba(0, 0, 0, 0.329);
+  background-color: rgba(0, 0, 0, 0.333);
   padding: 14px 40px 14px;
   text-align: center;
+  width: 100%;
 }
 
 main {
-  height: 350px;
+  max-width: 800px;
   text-align: center;
   padding: 50px 250px 10px;
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0.671);
-  height: 80px;
+  background-color: rgba(0, 0, 0, 0.6);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 1em;
+  width: 100%;
 }
 
 h1 {
@@ -57,6 +69,40 @@ a {
   font-family: "Exo 2", sans-serif;
 }
 
+a.btn-reservation {
+  border: 1px solid white;
+  padding: 1em 2em;
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  text-decoration: none;
+  border-radius: 0.5em;
+  background-color: #3f3f3f18;
+  font-size: large;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-wrap: nowrap;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+
+  transition: all 0.2s;
+}
+
+a.btn-reservation > svg {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+a.btn-reservation:hover {
+  color: rgba(250, 235, 215, 0.801);
+  background-color: #4646468e;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
 .intro {
   margin-bottom: 30px;
 }
@@ -73,14 +119,112 @@ nav a {
   margin: 0;
   font-size: 12px;
   color: rgba(250, 235, 215, 0.801);
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  transform: translateY(-50%);
   font-family: "Exo 2", sans-serif;
 }
 
 .maps {
   text-align: center;
   padding-bottom: 40px;
+  width: 100%;
+}
+
+.maps > iframe {
+  width: 65%;
+  height: 350px;
+  border-radius: 0.5em;
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 80%;
+    padding: 25px 25px 10px;
+  }
+
+  .maps > iframe {
+    width: 95%;
+    height: 200px;
+  }
+}
+
+
+/*----------------------------------\
+|               Menu                |
+\----------------------------------*/
+
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5em;
+  background-color: #9999993f;
+  margin-bottom: 2em;
+  color: #ececec;
+  border-radius: 0.25em;
+}
+
+.menu {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.menu-group-heading {
+  margin: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #ccc;
+}
+
+.menu-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5em;
+  padding: 1.5em 0;
+}
+
+.menu-item {
+  display: flex;
+  color: white !important;
+  padding: 0.5em;
+  border-radius: 0.15em;
+}
+
+.menu-item-img {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-right: 1.5em;
+}
+
+.menu-item-text {
+  flex-grow: 1;
+}
+
+.menu-item-heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.menu-item-name {
+  margin-right: 1.5em;
+  text-align: left;
+}
+
+.menu-item-desc {
+  line-height: 1.6;
+  text-align: left;
+}
+
+@media screen and (min-width: 992px) {
+  .menu {
+    font-size: 16px;
+  }
+
+  .menu-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-item-img {
+    width: 125px;
+    height: 125px;
+  }
 }
